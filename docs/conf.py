@@ -29,6 +29,6 @@ html_static_path = ['_static']
 
 # -- Options for Javascript embedding ---------------------------------------
 # https://docs.readthedocs.io/en/stable/guides/adding-custom-css.html
-html_js_files = [
-    'js/threeApp.js',
-]
+#html_js_files = [
+#    'js/threeApp.js',
+#]

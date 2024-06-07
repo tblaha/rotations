@@ -16,8 +16,6 @@ Rotations -- A practical guide
    sequences.md
    time_derivatives.md
 
-.. math::
-
 
 Indices and tables
 ==================
