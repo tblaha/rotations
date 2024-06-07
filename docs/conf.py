@@ -14,6 +14,7 @@ author = 'Isabelle El-Hajj, Till Blaha'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ["myst_parser"]
+myst_enable_extensions = ["dollarmath"]
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
@@ -25,3 +26,9 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'alabaster'
 html_static_path = ['_static']
+
+# -- Options for Javascript embedding ---------------------------------------
+# https://docs.readthedocs.io/en/stable/guides/adding-custom-css.html
+#html_js_files = [
+#    'js/threeApp.js',
+#]

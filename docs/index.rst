@@ -10,6 +10,13 @@ Rotations -- A practical guide
    :maxdepth: 2
    :caption: Contents:
 
+   intro.md
+   formalisms.md
+   conversions.md
+   sequences.md
+   time_derivatives.md
+
+.. math::
 
 
 Indices and tables
