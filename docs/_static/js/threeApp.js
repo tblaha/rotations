@@ -11,16 +11,25 @@ export function animate( applet ) {
 }
 
 export class threeApplet {
-    constructor(width, height, divId) {
+    constructor(maxWidth, maxHeight, divId) {
+        this.divElement = document.getElementById(divId)
+
+        this.maxWidth = maxWidth;
+        this.ratio = this.maxWidth / maxHeight;
+        this.margin = 20;
+        const trueWidth = Math.min( this.divElement.offsetWidth - this.margin, this.maxWidth );
+        const trueHeight = trueWidth / this.ratio;
+
         const renderer = new THREE.WebGLRenderer( { antialias: true } );
-        renderer.setSize( width, height );
+        renderer.setSize( trueWidth, trueHeight );
         renderer.autoClear = false;
+        this.divElement.appendChild( renderer.domElement );
 
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0xffffff);
 
         // camera, such that North East Down makes sense
-        const camera = new THREE.PerspectiveCamera( 40, width/height, 0.1, 1000 );
+        const camera = new THREE.PerspectiveCamera( 40, this.ratio, 0.1, 1000 );
         camera.up.set( 0, 0, -1 ); // for orbit controls to make sense
         camera.position.x = -2;
         camera.position.y = 1.5;
@@ -47,7 +56,11 @@ export class threeApplet {
         this.camera = camera;
         this.viewHelper = viewHelper;
 
-        document.getElementById(divId).appendChild( this.renderer.domElement );
+        //window.onresize = function() {
+        //    const trueWidth = Math.min( this.divElement.offsetWidth - this.margin, this.maxWidth );
+        //    const trueHeight = trueWidth / this.ratio;
+        //    this.renderer.setSize(trueWidth, trueHeight);
+        //}
     }
 }
 
